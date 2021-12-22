@@ -1,0 +1,87 @@
+1. Prompt user for card number
+2. Multiply every other digit by 2
+Check sum of those digits
+Add to remaining digits
+Validate checksum
+Validate company identifyer
+Validate number length
+
+
+ }
+
+    //check length is valid
+    if (len != 13 && len != 15 && len != 16)
+    {
+        printf("INVALID\n");
+        return 0;
+    }
+    
+// Calculate checksum
+    int sum1 = 0;
+    int sum2 = 0;
+    long cc = 0;
+    int total = 0;
+    int mod1;
+    int mod2;
+    int d1;
+    int d2;
+    
+    do
+    {
+        // Remove last digit and add to sum1
+        mod1 = cc % 10;
+        cc = cc / 10;
+        sum1 = sum1 + mod1;
+        // Remove second last digit
+        mod2 = cc % 10;
+        cc = cc / 10;
+        // Double second last digit and add digits to sum2
+        mod2 = mod2 * 2;
+        d1 = mod2 % 10;
+        d2 = mod2 / 10;
+        sum2 = sum2 + d1 + d2;
+    }
+    while (cc > 0);
+    total = sum1 + sum2;
+    
+    if (total % 10 != 0)
+    {
+        printf("INVALID\n");
+        return 0;
+    }
+    
+    int visa = 0;
+    long amex = 0;
+    long master =0;
+    
+    while (visa >= 10)
+    {
+        visa /= 10;
+    }
+    if (visa == 4 && (len == 13 || len == 16))
+    {
+        printf("VISA\n");
+        return 0;
+    }
+    
+    while (amex >= 10000000000000)
+    {
+        amex /= 10000000000000;
+    }
+    if (len == 15 && (amex == 34 || amex == 37))
+    {
+        printf("AMEX\n");
+        return 0;
+    }
+    
+    while (master >= 100000000000000)
+    {
+        master /= 100000000000000;
+    }
+    if (len == 16 && (master == 51 || master == 52 || master == 53 || master == 54 || master == 55))
+    {
+        printf("MASTER\n");
+        return 0;
+    }
+}
+
