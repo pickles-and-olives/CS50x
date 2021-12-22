@@ -1,0 +1,13 @@
+1) Vote // Record preference if vote is valid
+ Given: bool vote(int voter, int rank, string name)
+ 
+ iterate through candidate_count to verify if input name is a candidate, using if strcmp, check canditates name, using name variable.
+ If valid, record preference, preferences is jth preference for voter i. [max_voters][max_candidates] // [voter][rank] 
+ Return true if candidate name valid, and prefernce successfully stored, else return false
+ 
+ 2) tabulate info: arrange information in order to exclude eliminated candidates and reshuffle current vote count
+ 
+ 
+ 
+ 
+ 
