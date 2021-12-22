@@ -1,0 +1,3 @@
+Check one command- line argument
+
+Check char
